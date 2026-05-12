@@ -1,0 +1,17 @@
+{% extends 'wells/base.html' %}
+
+{% block title %}{{ well.name }} — RigWatch{% endblock %}
+
+{% block content %}
+<h2>{{ well.name }}</h2>
+<p>Pressure: {{ well.pressure }} psi</p>
+<p>Status:
+    {% if well.status == 'CRITICAL' %}
+        <span style="color: red;">{{ well.status }}</span>
+    {% else %}
+        {{ well.status }}
+    {% endif %}
+</p>
+<br>
+<a href="{% url 'well-list' %}">← Back to Well List</a>
+{% endblock %}

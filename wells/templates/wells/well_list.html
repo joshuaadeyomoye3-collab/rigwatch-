@@ -1,0 +1,20 @@
+{% extends 'wells/base.html' %}
+
+{% block title %}Well List — RigWatch{% endblock %}
+
+{% block content %}
+<h1>Active Wells</h1>
+<p>Total wells: {{ total_count }} | Critical: {{ critical_count }}</p>
+
+<ul>
+{% for well in wells %}
+    <li>
+        <a href="{% url 'well-detail' well_id=well.id %}">
+            {{ well.name }} — {{ well.status }}
+        </a>
+    </li>
+{% empty %}
+    <li>No wells found.</li>
+{% endfor %}
+</ul>
+{% endblock %}

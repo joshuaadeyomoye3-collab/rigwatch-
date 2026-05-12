@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}RigWatch{% endblock %}</title>
+</head>
+<body>
+    <nav>
+        <a href="{% url 'well-list' %}">All Wells</a> |
+        <a href="/">Dashboard</a>
+    </nav>
+    <hr>
+    {% block content %}{% endblock %}
+</body>
+</html>
